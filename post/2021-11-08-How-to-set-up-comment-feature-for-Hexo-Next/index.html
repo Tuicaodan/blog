@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"tuicaodan.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="OverviewsThis is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Dis">
+  <meta name="description" content="Overviews This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Di">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to set up comment feature for Hexo-Next">
 <meta property="og:url" content="https://tuicaodan.github.io/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/index.html">
 <meta property="og:site_name" content="Tuicaodan&#39;s Blog">
-<meta property="og:description" content="OverviewsThis is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Dis">
+<meta property="og:description" content="Overviews This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Di">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_setting.png">
 <meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_security.png">
 <meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/create_class.png">
 <meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png">
 <meta property="article:published_time" content="2021-11-08T09:16:30.000Z">
-<meta property="article:modified_time" content="2021-11-08T09:21:58.699Z">
+<meta property="article:modified_time" content="2021-11-08T09:50:44.574Z">
 <meta property="article:author" content="Tuicaodan">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Valine">
@@ -220,7 +220,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-08 22:16:30 / Modified: 22:21:58" itemprop="dateCreated datePublished" datetime="2021-11-08T22:16:30+13:00">2021-11-08</time>
+              <time title="Created: 2021-11-08 22:16:30 / Modified: 22:50:44" itemprop="dateCreated datePublished" datetime="2021-11-08T22:16:30+13:00">2021-11-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,17 +278,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
+        <p>Overviews</p>
+<p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
 <span id="more"></span>
 
-<h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><ul>
+<p>Disqus</p>
+<ul>
 <li>Create a Disqus account. Choose the I want to use “Disqus on my site” option.</li>
 <li>Create the <code>shortname</code> you entered.</li>
 <li>You should be able to login to the manager site by using this URL:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://YOUR_SHORTNAME.disqus.com/admin/settings/general</span><br></pre></td></tr></table></figure></li>
 <li>Once you have the <code>shortname</code>, update the Next theme <code>_config.yml</code><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">disqus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">YOUR_SHORTNAME</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
 <li>Done. Now you have the Disqus comment feature for the site</li>
 </ul>
-<h3 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h3><h4 id="The-basic"><a href="#The-basic" class="headerlink" title="The basic"></a>The basic</h4><ol>
+<p>Valine</p>
+<p>The basic</p>
+<ol>
 <li><p>In order to implement Valine, you need a LeanCloud account.</p>
 </li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://console.leancloud.app/login?from=/apps">LeanCloud</a>, register, and log in.</p>
@@ -306,7 +310,9 @@
 <li><p>Restart the server. Now you have the comment feature in the post</p>
 </li>
 </ol>
-<h4 id="Bits-and-bobs"><a href="#Bits-and-bobs" class="headerlink" title="Bits and bobs"></a>Bits and bobs</h4><h5 id="Remove-comment-feature-from-about-tags-categories-etc"><a href="#Remove-comment-feature-from-about-tags-categories-etc" class="headerlink" title="Remove comment feature from about/tags/categories/etc."></a>Remove comment feature from about/tags/categories/etc.</h5><p>I found that not only the post pages but also the about/tags/categories can have comments. This looks a little weird to me. I found there are two approaches too ban the comment feature in these sections.</p>
+<p>Bits and bobs</p>
+<p>Remove comment feature from about/tags/categories/etc.</p>
+<p>I found that not only the post pages but also the about/tags/categories can have comments. This looks a little weird to me. I found there are two approaches too ban the comment feature in these sections.</p>
 <ol>
 <li>Approach 1<ul>
 <li>The idea is to find the themes layout file and add conditions to the comment section.</li>
@@ -321,7 +327,8 @@
 </ul>
 </li>
 </ol>
-<h5 id="Change-the-“Valine”-in-the-post-header-to-“Comment”"><a href="#Change-the-“Valine”-in-the-post-header-to-“Comment”" class="headerlink" title="Change the “Valine” in the post header to “Comment”"></a>Change the “Valine” in the post header to “Comment”</h5><p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
+<p>Change the “Valine” in the post header to “Comment”</p>
+<p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
 <p>I think the word “Comment” is make more sense than “ Valine”. Here is the solution:</p>
 <ul>
 <li>Find the <code>valine.js</code> file in <code>/themes/next/scripts/filters/comment/valine.js</code></li>
@@ -329,12 +336,14 @@
 <li>Change the line to this:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;<span class="built_in">iconText</span>(<span class="string">&#x27;far fa-comment&#x27;</span>, <span class="string">&#x27;comment&#x27;</span>)&#125;</span><br></pre></td></tr></table></figure></li>
 <li>Restart the server</li>
 </ul>
-<h5 id="Change-Valine-default-language"><a href="#Change-Valine-default-language" class="headerlink" title="Change Valine default language"></a>Change Valine default language</h5><p>The default language of Valine is Chinese. If you want to change it to English, here is the simple solution:</p>
+<p>Change Valine default language</p>
+<p>The default language of Valine is Chinese. If you want to change it to English, here is the simple solution:</p>
 <ul>
 <li>Find the file <code>/themes/next/layout/_third-party/comments/valine.swig</code></li>
 <li>Change the <code>lang</code> to:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lang       : <span class="string">&#x27;&#123;&#123; theme.valine.language &#125;&#125;&#x27;</span>,</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="Change-the-default-Avatar"><a href="#Change-the-default-Avatar" class="headerlink" title="Change the default Avatar"></a>Change the default Avatar</h4><p>Update the Next theme <code>_config.yml</code>:</p>
+<p>Change the default Avatar</p>
+<p>Update the Next theme <code>_config.yml</code>:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="string">ture</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">xxxxxx-xxxxx</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">xxxxxxxxxxx</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mp</span> <span class="comment"># (&#x27;&#x27;/mp/identicon/monsterid/wavatar/robohash/retro/hide)</span></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -412,7 +421,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overviews"><span class="nav-number">1.</span> <span class="nav-text">Overviews</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Disqus"><span class="nav-number">1.1.</span> <span class="nav-text">Disqus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valine"><span class="nav-number">1.2.</span> <span class="nav-text">Valine</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-basic"><span class="nav-number">1.2.1.</span> <span class="nav-text">The basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bits-and-bobs"><span class="nav-number">1.2.2.</span> <span class="nav-text">Bits and bobs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Remove-comment-feature-from-about-tags-categories-etc"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Remove comment feature from about&#x2F;tags&#x2F;categories&#x2F;etc.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Change-the-%E2%80%9CValine%E2%80%9D-in-the-post-header-to-%E2%80%9CComment%E2%80%9D"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Change the “Valine” in the post header to “Comment”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Change-Valine-default-language"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Change Valine default language</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-the-default-Avatar"><span class="nav-number">1.2.3.</span> <span class="nav-text">Change the default Avatar</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -551,7 +559,7 @@
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail';
     guest = guest.split(',').filter(item => {

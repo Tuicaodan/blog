@@ -3,17 +3,21 @@
   <entry>
     <title>How to set up comment feature for Hexo-Next</title>
     <url>/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/</url>
-    <content><![CDATA[<h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
+    <content><![CDATA[<p>Overviews</p>
+<p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
 <span id="more"></span>
 
-<h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><ul>
+<p>Disqus</p>
+<ul>
 <li>Create a Disqus account. Choose the I want to use “Disqus on my site” option.</li>
 <li>Create the <code>shortname</code> you entered.</li>
 <li>You should be able to login to the manager site by using this URL:<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://YOUR_SHORTNAME.disqus.com/admin/settings/general</span><br></pre></td></tr></table></figure></li>
 <li>Once you have the <code>shortname</code>, update the Next theme <code>_config.yml</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">disqus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">YOUR_SHORTNAME</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
 <li>Done. Now you have the Disqus comment feature for the site</li>
 </ul>
-<h3 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h3><h4 id="The-basic"><a href="#The-basic" class="headerlink" title="The basic"></a>The basic</h4><ol>
+<p>Valine</p>
+<p>The basic</p>
+<ol>
 <li><p>In order to implement Valine, you need a LeanCloud account.</p>
 </li>
 <li><p>Go to <a href="https://console.leancloud.app/login?from=/apps">LeanCloud</a>, register, and log in.</p>
@@ -31,7 +35,9 @@
 <li><p>Restart the server. Now you have the comment feature in the post</p>
 </li>
 </ol>
-<h4 id="Bits-and-bobs"><a href="#Bits-and-bobs" class="headerlink" title="Bits and bobs"></a>Bits and bobs</h4><h5 id="Remove-comment-feature-from-about-tags-categories-etc"><a href="#Remove-comment-feature-from-about-tags-categories-etc" class="headerlink" title="Remove comment feature from about/tags/categories/etc."></a>Remove comment feature from about/tags/categories/etc.</h5><p>I found that not only the post pages but also the about/tags/categories can have comments. This looks a little weird to me. I found there are two approaches too ban the comment feature in these sections.</p>
+<p>Bits and bobs</p>
+<p>Remove comment feature from about/tags/categories/etc.</p>
+<p>I found that not only the post pages but also the about/tags/categories can have comments. This looks a little weird to me. I found there are two approaches too ban the comment feature in these sections.</p>
 <ol>
 <li>Approach 1<ul>
 <li>The idea is to find the themes layout file and add conditions to the comment section.</li>
@@ -46,7 +52,8 @@
 </ul>
 </li>
 </ol>
-<h5 id="Change-the-“Valine”-in-the-post-header-to-“Comment”"><a href="#Change-the-“Valine”-in-the-post-header-to-“Comment”" class="headerlink" title="Change the “Valine” in the post header to “Comment”"></a>Change the “Valine” in the post header to “Comment”</h5><p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
+<p>Change the “Valine” in the post header to “Comment”</p>
+<p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
 <p>I think the word “Comment” is make more sense than “ Valine”. Here is the solution:</p>
 <ul>
 <li>Find the <code>valine.js</code> file in <code>/themes/next/scripts/filters/comment/valine.js</code></li>
@@ -54,12 +61,14 @@
 <li>Change the line to this:<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">$&#123;<span class="built_in">iconText</span>(<span class="string">&#x27;far fa-comment&#x27;</span>, <span class="string">&#x27;comment&#x27;</span>)&#125;</span><br></pre></td></tr></table></figure></li>
 <li>Restart the server</li>
 </ul>
-<h5 id="Change-Valine-default-language"><a href="#Change-Valine-default-language" class="headerlink" title="Change Valine default language"></a>Change Valine default language</h5><p>The default language of Valine is Chinese. If you want to change it to English, here is the simple solution:</p>
+<p>Change Valine default language</p>
+<p>The default language of Valine is Chinese. If you want to change it to English, here is the simple solution:</p>
 <ul>
 <li>Find the file <code>/themes/next/layout/_third-party/comments/valine.swig</code></li>
 <li>Change the <code>lang</code> to:<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">lang       : <span class="string">&#x27;&#123;&#123; theme.valine.language &#125;&#125;&#x27;</span>,</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="Change-the-default-Avatar"><a href="#Change-the-default-Avatar" class="headerlink" title="Change the default Avatar"></a>Change the default Avatar</h4><p>Update the Next theme <code>_config.yml</code>:</p>
+<p>Change the default Avatar</p>
+<p>Update the Next theme <code>_config.yml</code>:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="string">ture</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">xxxxxx-xxxxx</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">xxxxxxxxxxx</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mp</span> <span class="comment"># (&#x27;&#x27;/mp/identicon/monsterid/wavatar/robohash/retro/hide)</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>

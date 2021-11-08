@@ -211,7 +211,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-08 22:16:30 / Modified: 22:21:58" itemprop="dateCreated datePublished" datetime="2021-11-08T22:16:30+13:00">2021-11-08</time>
+              <time title="Created: 2021-11-08 22:16:30 / Modified: 22:50:44" itemprop="dateCreated datePublished" datetime="2021-11-08T22:16:30+13:00">2021-11-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
+          <p>Overviews</p>
+<p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/#more" rel="contents">
@@ -485,7 +486,7 @@
 
 <script>
 NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
     var GUEST = ['nick', 'mail', 'link'];
     var guest = 'nick,mail';
     guest = guest.split(',').filter(item => {
