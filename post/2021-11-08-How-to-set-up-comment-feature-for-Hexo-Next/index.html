@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.png">
+  <link rel="mask-icon" href="/blog/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tuicaodan.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="OverviewsThis is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Dis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to set up comment feature for Hexo-Next">
+<meta property="og:url" content="https://tuicaodan.github.io/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/index.html">
+<meta property="og:site_name" content="Tuicaodan&#39;s Blog">
+<meta property="og:description" content="OverviewsThis is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Dis">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_setting.png">
+<meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_security.png">
+<meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/create_class.png">
+<meta property="og:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png">
+<meta property="article:published_time" content="2021-11-08T09:16:30.000Z">
+<meta property="article:modified_time" content="2021-11-08T09:21:58.699Z">
+<meta property="article:author" content="Tuicaodan">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Valine">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuicaodan.github.io/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_setting.png">
+
+<link rel="canonical" href="https://tuicaodan.github.io/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>How to set up comment feature for Hexo-Next | Tuicaodan's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Tuicaodan's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tuicaodan.github.io/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Tuicaodan">
+      <meta itemprop="description" content="This is where it all begins.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tuicaodan's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to set up comment feature for Hexo-Next
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-08 22:16:30 / Modified: 22:21:58" itemprop="dateCreated datePublished" datetime="2021-11-08T22:16:30+13:00">2021-11-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/How-to/" itemprop="url" rel="index"><span itemprop="name">How-to</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/" class="post-meta-item leancloud_visitors" data-flag-title="How to set up comment feature for Hexo-Next" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Comment: </span>
+    
+    <a title="valine" href="/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
+<span id="more"></span>
+
+<h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><ul>
+<li>Create a Disqus account. Choose the I want to use “Disqus on my site” option.</li>
+<li>Create the <code>shortname</code> you entered.</li>
+<li>You should be able to login to the manager site by using this URL:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://YOUR_SHORTNAME.disqus.com/admin/settings/general</span><br></pre></td></tr></table></figure></li>
+<li>Once you have the <code>shortname</code>, update the Next theme <code>_config.yml</code><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">disqus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">YOUR_SHORTNAME</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+<li>Done. Now you have the Disqus comment feature for the site</li>
+</ul>
+<h3 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h3><h4 id="The-basic"><a href="#The-basic" class="headerlink" title="The basic"></a>The basic</h4><ol>
+<li><p>In order to implement Valine, you need a LeanCloud account.</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://console.leancloud.app/login?from=/apps">LeanCloud</a>, register, and log in.</p>
+</li>
+<li><p>Create an app(developer)<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_setting.png" alt="Leancloud Settings"></p>
+</li>
+<li><p>In <code>Setting &gt; Security</code> turn off all the options other than <code>LeanStorage</code><br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/leancloud_security.png" alt="Leancloud Security Settings"></p>
+</li>
+<li><p>Create a new class in the <code>Data Storage &gt; Date</code>. Make sure the class has <code>No restrictions</code>.<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/create_class.png" alt="Create a class"></p>
+</li>
+<li><p>In the <code>Setting &gt; App Key</code>, grab the <code>App ID</code> and <code>App Key</code>.</p>
+</li>
+<li><p>Update the Next theme <code>_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Valine.</span></span><br><span class="line"><span class="comment"># You can get your appid and appkey from https://leancloud.cn</span></span><br><span class="line"><span class="comment"># more info please open https://valine.js.org</span></span><br><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">xxxxxxxxx</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">xxxxxxxxx</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">true</span> <span class="comment"># mail notifier , https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Restart the server. Now you have the comment feature in the post</p>
+</li>
+</ol>
+<h4 id="Bits-and-bobs"><a href="#Bits-and-bobs" class="headerlink" title="Bits and bobs"></a>Bits and bobs</h4><h5 id="Remove-comment-feature-from-about-tags-categories-etc"><a href="#Remove-comment-feature-from-about-tags-categories-etc" class="headerlink" title="Remove comment feature from about/tags/categories/etc."></a>Remove comment feature from about/tags/categories/etc.</h5><p>I found that not only the post pages but also the about/tags/categories can have comments. This looks a little weird to me. I found there are two approaches too ban the comment feature in these sections.</p>
+<ol>
+<li>Approach 1<ul>
+<li>The idea is to find the themes layout file and add conditions to the comment section.</li>
+<li>For Next theme, the layout file locates at <code>themes/layout/_layout.sig</code></li>
+<li>Find these lines in the file:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include <span class="string">&#x27;_partials/comments.swig&#x27;</span> %&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Change it to:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> page.type !== <span class="string">&#x27;about&#x27;</span> <span class="keyword">and</span> page.type !== <span class="string">&#x27;tags&#x27;</span> <span class="keyword">and</span> page.type !== <span class="string">&#x27;categories&#x27;</span> %&#125;</span><br><span class="line">    &#123;% include <span class="string">&#x27;_partials/comments.swig&#x27;</span> %&#125;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Approach 2<ul>
+<li>add the following in the <code>scaffolds/post.md</code><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123; &#123; title &#125; &#125;</span><br><span class="line">date: &#123; &#123; date &#125; &#125;</span><br><span class="line">comments: true</span><br><span class="line">categories:</span><br><span class="line"><span class="section">tags:</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure></li>
+<li>add the following in the about/tags/categories/etc files.<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2018-12-06 22:54:28</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line"><span class="section">comments: false</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h5 id="Change-the-“Valine”-in-the-post-header-to-“Comment”"><a href="#Change-the-“Valine”-in-the-post-header-to-“Comment”" class="headerlink" title="Change the “Valine” in the post header to “Comment”"></a>Change the “Valine” in the post header to “Comment”</h5><p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-set-up-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
+<p>I think the word “Comment” is make more sense than “ Valine”. Here is the solution:</p>
+<ul>
+<li>Find the <code>valine.js</code> file in <code>/themes/next/scripts/filters/comment/valine.js</code></li>
+<li>Find this line in the file:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;<span class="built_in">iconText</span>(<span class="string">&#x27;far fa-comment&#x27;</span>, <span class="string">&#x27;valine&#x27;</span>)&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Change the line to this:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;<span class="built_in">iconText</span>(<span class="string">&#x27;far fa-comment&#x27;</span>, <span class="string">&#x27;comment&#x27;</span>)&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Restart the server</li>
+</ul>
+<h5 id="Change-Valine-default-language"><a href="#Change-Valine-default-language" class="headerlink" title="Change Valine default language"></a>Change Valine default language</h5><p>The default language of Valine is Chinese. If you want to change it to English, here is the simple solution:</p>
+<ul>
+<li>Find the file <code>/themes/next/layout/_third-party/comments/valine.swig</code></li>
+<li>Change the <code>lang</code> to:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lang       : <span class="string">&#x27;&#123;&#123; theme.valine.language &#125;&#125;&#x27;</span>,</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Change-the-default-Avatar"><a href="#Change-the-default-Avatar" class="headerlink" title="Change the default Avatar"></a>Change the default Avatar</h4><p>Update the Next theme <code>_config.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="string">ture</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">xxxxxx-xxxxx</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">xxxxxxxxxxx</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mp</span> <span class="comment"># (&#x27;&#x27;/mp/identicon/monsterid/wavatar/robohash/retro/hide)</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/blog/tags/Valine/" rel="tag"># Valine</a>
+              <a href="/blog/tags/Blog/" rel="tag"># Blog</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+              
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overviews"><span class="nav-number">1.</span> <span class="nav-text">Overviews</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Disqus"><span class="nav-number">1.1.</span> <span class="nav-text">Disqus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valine"><span class="nav-number">1.2.</span> <span class="nav-text">Valine</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-basic"><span class="nav-number">1.2.1.</span> <span class="nav-text">The basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bits-and-bobs"><span class="nav-number">1.2.2.</span> <span class="nav-text">Bits and bobs</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Remove-comment-feature-from-about-tags-categories-etc"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Remove comment feature from about&#x2F;tags&#x2F;categories&#x2F;etc.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Change-the-%E2%80%9CValine%E2%80%9D-in-the-post-header-to-%E2%80%9CComment%E2%80%9D"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Change the “Valine” in the post header to “Comment”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Change-Valine-default-language"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">Change Valine default language</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-the-default-Avatar"><span class="nav-number">1.2.3.</span> <span class="nav-text">Change the default Avatar</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Tuicaodan"
+      src="/blog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Tuicaodan</p>
+  <div class="site-description" itemprop="description">This is where it all begins.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tuicaodan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tuicaodan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tuicaodan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">4k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4 mins.</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/muse.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'NJlOwHOrsBNNVqdySeVvpn6t-MdYXbMMI',
+      appKey     : 'H8cqz1ijI628pNPHDW2mEHnV',
+      placeholder: "Just go go",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
