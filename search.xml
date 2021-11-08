@@ -67,11 +67,11 @@
 <h4 id="Change-the-default-Avatar"><a href="#Change-the-default-Avatar" class="headerlink" title="Change the default Avatar"></a>Change the default Avatar</h4><p>Update the Next theme <code>_config.yml</code>:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="string">ture</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">xxxxxx-xxxxx</span> <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">xxxxxxxxxxx</span> <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># Mail notifier</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">true</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># Comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mp</span> <span class="comment"># (&#x27;&#x27;/mp/identicon/monsterid/wavatar/robohash/retro/hide)</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>How-to</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Valine</tag>
+        <tag>Comment</tag>
         <tag>Blog</tag>
       </tags>
   </entry>
