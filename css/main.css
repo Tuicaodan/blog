@@ -912,9 +912,6 @@ pre .javascript .function {
   margin-top: 60px;
   overflow: hidden;
 }
-.vcopy.txt-right {
-  display: none;
-}
 .comment-button-group {
   display: flex;
   flex-wrap: wrap-reverse;
@@ -1200,7 +1197,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9470f5;
+  background: #f9001c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
