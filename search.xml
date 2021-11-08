@@ -22,11 +22,11 @@
 </li>
 <li><p>Go to <a href="https://console.leancloud.app/login?from=/apps">LeanCloud</a>, register, and log in.</p>
 </li>
-<li><p>Create an app(developer)<br><img src="/blog/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/leancloud_setting.png" alt="Leancloud Settings"></p>
+<li><p>Create an app(developer)<br><img src="https://i.imgur.com/wCAS5uq.png" alt="Leancloud Settings"></p>
 </li>
-<li><p>In <code>Setting &gt; Security</code> turn off all the options other than <code>LeanStorage</code><br><img src="/blog/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/leancloud_security.png" alt="Leancloud Security Settings"></p>
+<li><p>In <code>Setting &gt; Security</code> turn off all the options other than <code>LeanStorage</code><br><img src="https://i.imgur.com/2WkEGst.png" alt="Leancloud Security Settings"></p>
 </li>
-<li><p>Create a new class in the <code>Data Storage &gt; Date</code>. Make sure the class has <code>No restrictions</code>.<br><img src="/blog/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/create_class.png" alt="Create a class"></p>
+<li><p>Create a new class in the <code>Data Storage &gt; Date</code>. Make sure the class has <code>No restrictions</code>.<br><img src="https://i.imgur.com/CN2mPf0.png" alt="Create a class"></p>
 </li>
 <li><p>In the <code>Setting &gt; App Key</code>, grab the <code>App ID</code> and <code>App Key</code>.</p>
 </li>
@@ -53,7 +53,7 @@
 </li>
 </ol>
 <p><strong>Change the “Valine” in the post header to “Comment”</strong></p>
-<p>By default, the post header looks like this:<br><img src="/blog/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/comment_title.png" alt="comment title"></p>
+<p>By default, the post header looks like this:<br><img src="https://i.imgur.com/WRJzAVX.png" alt="comment title"></p>
 <p>I think the word “Comment” is make more sense than “ Valine”. Here is the solution:</p>
 <ul>
 <li>Find the <code>valine.js</code> file in <code>/themes/next/scripts/filters/comment/valine.js</code></li>
