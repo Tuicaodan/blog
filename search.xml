@@ -4,6 +4,8 @@
     <title>How to setup a blog using Hexo</title>
     <url>/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/</url>
     <content><![CDATA[<h1 id="How-to-install-Hexo"><a href="#How-to-install-Hexo" class="headerlink" title="How to install Hexo"></a>How to install Hexo</h1><h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
+<span id="more"></span>
+
 <h3 id="Why-did-I-choose-Hexo"><a href="#Why-did-I-choose-Hexo" class="headerlink" title="Why did I choose Hexo"></a>Why did I choose Hexo</h3><p>I chose Hexo + GitHub for my blog. The most important reason is that I want to have full control of the blog while not paying too much attention to the server/domain/etc. The Hexo + GitHub combination gives me lots of flexibility on the styling, theme, third-party plugin or so. Here are some advantages I believe is quite important</p>
 <ul>
 <li>Hexo generates a static webpage which means the speed it fast</li>
