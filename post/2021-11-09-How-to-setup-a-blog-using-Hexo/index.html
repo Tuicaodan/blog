@@ -20,31 +20,37 @@
     var CONFIG = {"hostname":"tuicaodan.github.io","root":"/blog/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="This is where it all begins.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tuicaodan&#39;s Blog">
-<meta property="og:url" content="https://tuicaodan.github.io/blog/index.html">
+  <meta name="description" content="How to install HexoThe storyI keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to setup a blog using Hexo">
+<meta property="og:url" content="https://tuicaodan.github.io/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/index.html">
 <meta property="og:site_name" content="Tuicaodan&#39;s Blog">
-<meta property="og:description" content="This is where it all begins.">
+<meta property="og:description" content="How to install HexoThe storyI keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I f">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/ZAOvxhq.png">
+<meta property="og:image" content="https://i.imgur.com/ngN3TfF.png">
+<meta property="article:published_time" content="2021-11-09T09:29:46.000Z">
+<meta property="article:modified_time" content="2021-11-09T10:50:09.147Z">
 <meta property="article:author" content="Tuicaodan">
-<meta property="article:tag" content="tech, coding, fullstack, frontend">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/ZAOvxhq.png">
 
-<link rel="canonical" href="https://tuicaodan.github.io/blog/">
+<link rel="canonical" href="https://tuicaodan.github.io/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tuicaodan's Blog</title>
+  <title>How to setup a blog using Hexo | Tuicaodan's Blog</title>
   
 
 
@@ -180,9 +186,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -198,10 +205,9 @@
       <meta itemprop="name" content="Tuicaodan's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/" class="post-title-link" itemprop="url">How to setup a blog using Hexo</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          How to setup a blog using Hexo
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -261,7 +267,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="How-to-install-Hexo"><a href="#How-to-install-Hexo" class="headerlink" title="How to install Hexo"></a>How to install Hexo</h1><h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
+        <h1 id="How-to-install-Hexo"><a href="#How-to-install-Hexo" class="headerlink" title="How to install Hexo"></a>How to install Hexo</h1><h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
 <h3 id="Why-did-I-choose-Hexo"><a href="#Why-did-I-choose-Hexo" class="headerlink" title="Why did I choose Hexo"></a>Why did I choose Hexo</h3><p>I chose Hexo + GitHub for my blog. The most important reason is that I want to have full control of the blog while not paying too much attention to the server/domain/etc. The Hexo + GitHub combination gives me lots of flexibility on the styling, theme, third-party plugin or so. Here are some advantages I believe is quite important</p>
 <ul>
 <li>Hexo generates a static webpage which means the speed it fast</li>
@@ -316,131 +322,47 @@
 <li>Now you should be able to see the default Hexo blog using the URL provided in the GitHub Pages.</li>
 </ol>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/blog/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/blog/tags/blog/" rel="tag"># blog</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://tuicaodan.github.io/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="Tuicaodan">
-      <meta itemprop="description" content="This is where it all begins.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tuicaodan's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/" class="post-title-link" itemprop="url">How to setup comment feature for Hexo Next</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-08 23:00:25" itemprop="dateCreated datePublished" datetime="2021-11-08T23:00:25+13:00">2021-11-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/" rel="prev" title="How to setup comment feature for Hexo Next">
+      <i class="fa fa-chevron-left"></i> How to setup comment feature for Hexo Next
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  <!--
--->
-
 
 
 
           </div>
               
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -487,6 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-install-Hexo"><span class="nav-number">1.</span> <span class="nav-text">How to install Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-story"><span class="nav-number">1.0.1.</span> <span class="nav-text">The story</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-did-I-choose-Hexo"><span class="nav-number">1.0.2.</span> <span class="nav-text">Why did I choose Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Hexo"><span class="nav-number">1.0.3.</span> <span class="nav-text">What is Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Hexo"><span class="nav-number">1.0.4.</span> <span class="nav-text">Install Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-problem"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">The problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-solution"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">The solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-GitHub-repository-for-the-blog"><span class="nav-number">1.0.5.</span> <span class="nav-text">Create a GitHub repository for the blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-Hexo-blog-to-GitHub"><span class="nav-number">1.0.6.</span> <span class="nav-text">Deploy Hexo blog to GitHub</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -631,6 +554,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://tuicaodan.github.io/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/";
+    this.page.identifier = "post/2021-11-09-How-to-setup-a-blog-using-Hexo/";
+    this.page.title = "How to setup a blog using Hexo";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://tuicaodan.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
