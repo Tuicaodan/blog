@@ -1,74 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>How to setup a blog using Hexo</title>
-    <url>/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/</url>
-    <content><![CDATA[<h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
-<span id="more"></span>
-
-<h3 id="Why-did-I-choose-Hexo"><a href="#Why-did-I-choose-Hexo" class="headerlink" title="Why did I choose Hexo"></a>Why did I choose Hexo</h3><p>I chose Hexo + GitHub for my blog. The most important reason is that I want to have full control of the blog while not paying too much attention to the server/domain/etc. The Hexo + GitHub combination gives me lots of flexibility on the styling, theme, third-party plugin or so. Here are some advantages I believe is quite important</p>
-<ul>
-<li>Hexo generates a static webpage which means the speed it fast</li>
-<li>Hexo uses Markdown for posting</li>
-<li>The deployment is really straightforward.</li>
-<li>If you want, you could make the blog really complex(need to understand some source code)</li>
-<li>All the files stored on GitHub(free and safer than other free hosts?)</li>
-</ul>
-<h3 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo"></a>What is Hexo</h3><p>Here is the quote from Hexo website:</p>
-<blockquote>
-<p>Hexo is a fast, simple and powerful blog framework. You write posts in <a href="http://daringfireball.net/projects/markdown/">Markdown</a> (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.</p>
-</blockquote>
-<h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><ol>
-<li>Before installing Hexo, you should have Git, Node.js, npm installed.</li>
-<li>Here is the command from the office doc: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-<li>After install, use this command to check whether the Hexo is installed correctly <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-</li>
-<li>initiate Hexo: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init blog-folder-name</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> blog-foler-name</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li>static file generation and run server <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li>Then you should be able to see your Hexo blog on the <code>localhost:4000</code></li>
-</ol>
-<h4 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h4><ul>
-<li>I had some issues with Hexo installation. After installation, the <code>hexo -v</code> command will return this error: <code>command not found: hexo</code>.</li>
-<li>A little background story: I changed the location of npm global packages since I want to avoid using <code>sudo</code> for npm packages installation.</li>
-<li>So I believe the problem that I cannot run <code>hexo</code> command is because of the changes in the environment variables.</li>
-</ul>
-<h4 id="The-solution"><a href="#The-solution" class="headerlink" title="The solution"></a>The solution</h4><ol>
-<li>After several hours of searching, I realized the easiest way is to install and use Hexo locally.</li>
-<li>I create a folder, run <code>npm init</code> in the folder and then install hexo <code>npm install hexo-cli</code> </li>
-<li>use <code>npx hexo -v</code> to check whether I have hexo installed. </li>
-<li>initiate Hexo and rest are the same as above. Besides, you have to use <code>npx</code> to run hexo locally : <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo init hexo-blog</span><br></pre></td></tr></table></figure>
-</li>
-<li>cd to the hexo-blog folder and do dependencies installation <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li>The generate and run commands are: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo g</span><br><span class="line">npx hexo s</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Create-a-GitHub-repository-for-the-blog"><a href="#Create-a-GitHub-repository-for-the-blog" class="headerlink" title="Create a GitHub repository for the blog"></a>Create a GitHub repository for the blog</h3><ol>
-<li>Create a new repository, make sure it is public <img src="https://i.imgur.com/ZAOvxhq.png" alt="create a new repository"></li>
-<li>Check the repository&gt;Settings&gt;Pages&gt;Source is correct <img src="https://i.imgur.com/ngN3TfF.png" alt="pages setting"></li>
-</ol>
-<h3 id="Deploy-Hexo-blog-to-GitHub"><a href="#Deploy-Hexo-blog-to-GitHub" class="headerlink" title="Deploy Hexo blog to GitHub"></a>Deploy Hexo blog to GitHub</h3><ol>
-<li>Go to the blog folder, open the site setting file <code>_config.yml</code> and change the <code>deploy</code> section to your GitHub repository address: <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/[Your-GitHub-Username]/[repo-name]</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>Install hexo deployer <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
-</li>
-<li>clean the bin, generate, and then deploy <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo g</span><br><span class="line">npx hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li>Now you should be able to see the default Hexo blog using the URL provided in the GitHub Pages.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to setup comment feature for Hexo Next</title>
     <url>/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/</url>
     <content><![CDATA[<h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
@@ -143,6 +75,74 @@
         <tag>Hexo</tag>
         <tag>Comment</tag>
         <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to setup a blog using Hexo</title>
+    <url>/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/</url>
+    <content><![CDATA[<h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
+<span id="more"></span>
+
+<h3 id="Why-did-I-choose-Hexo"><a href="#Why-did-I-choose-Hexo" class="headerlink" title="Why did I choose Hexo"></a>Why did I choose Hexo</h3><p>I chose Hexo + GitHub for my blog. The most important reason is that I want to have full control of the blog while not paying too much attention to the server/domain/etc. The Hexo + GitHub combination gives me lots of flexibility on the styling, theme, third-party plugin or so. Here are some advantages I believe is quite important</p>
+<ul>
+<li>Hexo generates a static webpage which means the speed it fast</li>
+<li>Hexo uses Markdown for posting</li>
+<li>The deployment is really straightforward.</li>
+<li>If you want, you could make the blog really complex(need to understand some source code)</li>
+<li>All the files stored on GitHub(free and safer than other free hosts?)</li>
+</ul>
+<h3 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo"></a>What is Hexo</h3><p>Here is the quote from Hexo website:</p>
+<blockquote>
+<p>Hexo is a fast, simple and powerful blog framework. You write posts in <a href="http://daringfireball.net/projects/markdown/">Markdown</a> (or other markup languages) and Hexo generates static files with a beautiful theme in seconds.</p>
+</blockquote>
+<h3 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3><ol>
+<li>Before installing Hexo, you should have Git, Node.js, npm installed.</li>
+<li>Here is the command from the office doc: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>After install, use this command to check whether the Hexo is installed correctly <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+</li>
+<li>initiate Hexo: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init blog-folder-name</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> blog-foler-name</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li>static file generation and run server <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li>Then you should be able to see your Hexo blog on the <code>localhost:4000</code></li>
+</ol>
+<h4 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h4><ul>
+<li>I had some issues with Hexo installation. After installation, the <code>hexo -v</code> command will return this error: <code>command not found: hexo</code>.</li>
+<li>A little background story: I changed the location of npm global packages since I want to avoid using <code>sudo</code> for npm packages installation.</li>
+<li>So I believe the problem that I cannot run <code>hexo</code> command is because of the changes in the environment variables.</li>
+</ul>
+<h4 id="The-solution"><a href="#The-solution" class="headerlink" title="The solution"></a>The solution</h4><ol>
+<li>After several hours of searching, I realized the easiest way is to install and use Hexo locally.</li>
+<li>I create a folder, run <code>npm init</code> in the folder and then install hexo <code>npm install hexo-cli</code> </li>
+<li>use <code>npx hexo -v</code> to check whether I have hexo installed. </li>
+<li>initiate Hexo and rest are the same as above. Besides, you have to use <code>npx</code> to run hexo locally : <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo init hexo-blog</span><br></pre></td></tr></table></figure>
+</li>
+<li>cd to the hexo-blog folder and do dependencies installation <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li>The generate and run commands are: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo g</span><br><span class="line">npx hexo s</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Create-a-GitHub-repository-for-the-blog"><a href="#Create-a-GitHub-repository-for-the-blog" class="headerlink" title="Create a GitHub repository for the blog"></a>Create a GitHub repository for the blog</h3><ol>
+<li>Create a new repository, make sure it is public <img src="https://i.imgur.com/ZAOvxhq.png" alt="create a new repository"></li>
+<li>Check the repository&gt;Settings&gt;Pages&gt;Source is correct <img src="https://i.imgur.com/ngN3TfF.png" alt="pages setting"></li>
+</ol>
+<h3 id="Deploy-Hexo-blog-to-GitHub"><a href="#Deploy-Hexo-blog-to-GitHub" class="headerlink" title="Deploy Hexo blog to GitHub"></a>Deploy Hexo blog to GitHub</h3><ol>
+<li>Go to the blog folder, open the site setting file <code>_config.yml</code> and change the <code>deploy</code> section to your GitHub repository address: <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/[Your-GitHub-Username]/[repo-name]</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>Install hexo deployer <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+</li>
+<li>clean the bin, generate, and then deploy <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo clean</span><br><span class="line">npx hexo g</span><br><span class="line">npx hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li>Now you should be able to see the default Hexo blog using the URL provided in the GitHub Pages.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>
