@@ -3,10 +3,10 @@
   <entry>
     <title>How to set up NexT theme in Hexo</title>
     <url>/blog/post/2021-11-14-How-to-set-up-NexT-theme-in-Hexo/</url>
-    <content><![CDATA[<p>The Hexo comes with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted <a href="%5Bhttps://hexo.io/themes/%5D(https://hexo.io/themes/)">here</a>. I found some of the themes were stopped to update by the authors a couple of years ago. One thing I remind myself when picking the theme is to check whether the last update is within one year. Because there might be less compatible issues with the newer versions of Hexo. </p>
+    <content><![CDATA[<p>The Hexo comes with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted <a href="https://hexo.io/themes/">here</a>. I found some of the themes were stopped to update by the authors a couple of years ago. One thing I remind myself when picking the theme is to check whether the last update is within one year. Because there might be less compatible issues with the newer versions of Hexo. </p>
 <span id="more"></span>
 
-<p>I decided to go with the NexT theme since it was updated five months ago and also really aligns with my minimalism aethestic standard. Here is the <a href="%5Bhttps://github.com/theme-next/hexo-theme-next%5D(https://github.com/theme-next/hexo-theme-next)">repo</a>. </p>
+<p>I decided to go with the NexT theme since it was updated five months ago and also really aligns with my minimalism aethestic standard. Here is the <a href="https://github.com/theme-next/hexo-theme-next">repo</a>. </p>
 <h2 id="How-to-install-NexT"><a href="#How-to-install-NexT" class="headerlink" title="How to install NexT"></a>How to install NexT</h2><ol>
 <li>In the Hexo root folder, install through npm <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 </li>
