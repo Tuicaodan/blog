@@ -28,7 +28,7 @@
 <meta property="og:description" content="The Hexo came with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted here. I found">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-14T09:58:09.000Z">
-<meta property="article:modified_time" content="2021-11-14T10:01:17.577Z">
+<meta property="article:modified_time" content="2021-11-14T10:09:25.153Z">
 <meta property="article:author" content="Tuicaodan">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="blog">
@@ -253,7 +253,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.5k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -321,9 +321,9 @@
 </li>
 </ul>
 <h3 id="6-Add-password-feature"><a href="#6-Add-password-feature" class="headerlink" title="6. Add password feature"></a>6. Add password feature</h3><ul>
-<li>In the file themes/next/layout/_partials/head.swig, add the following code:  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">function</span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">prompt</span>(<span class="string">&#x27;Please enter password&#x27;</span>) !== <span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">			<span class="built_in">alert</span>(<span class="string">&#x27;Wrong Password!&#x27;</span>);</span><br><span class="line">			history.<span class="built_in">back</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-hexo-blog-encrypt</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>When writing new articles, add these to the head  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags: [test, password]</span><br><span class="line">password:123456</span><br></pre></td></tr></table></figure>
+<li>When writing new articles, add these to the head  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags: [test, password]</span><br><span class="line"><span class="section">password:123456</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="7-Add-word-count-and-estimate-reading-time"><a href="#7-Add-word-count-and-estimate-reading-time" class="headerlink" title="7. Add word count and estimate reading time"></a>7. Add word count and estimate reading time</h3><ul>
