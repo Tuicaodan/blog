@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>How to set up NexT theme in Hexo</title>
+    <url>/blog/post/2021-11-14-How-to-set-up-NexT-theme-in-Hexo/</url>
+    <content><![CDATA[<p>The Hexo came with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted <a href="%5Bhttps://hexo.io/themes/%5D(https://hexo.io/themes/)">here</a>. I found some of the themes were stopped to update by the authors a couple of years ago. One of the parameters when I picked the theme, one of the parameters is that the last update should be within a year ago. So there might be less possibility of compatible issues with the newer versions of Hexo. </p>
+<span id="more"></span>
+
+<p>I decided to go with the NexT theme since it really aligns with my minimalism guideline. Here is the <a href="%5Bhttps://github.com/theme-next/hexo-theme-next%5D(https://github.com/theme-next/hexo-theme-next)">repo</a>. </p>
+<p>[TOC]</p>
+<h2 id="How-to-install-NexT"><a href="#How-to-install-NexT" class="headerlink" title="How to install NexT"></a>How to install NexT</h2><ol>
+<li>In the Hexo root folder, install through npm <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li>Or you can clone the repo instead of npm installation <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li>changes the <code>theme</code> setting in the <code>_config.yml</code>  file in the Hexo root folder: <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>Now you have installed the NexT theme</li>
+</ol>
+<h2 id="Bits-and-bobs-about-how-I-set-up"><a href="#Bits-and-bobs-about-how-I-set-up" class="headerlink" title="Bits and bobs about how I set up"></a>Bits and bobs about how I set up</h2><ul>
+<li>There are hundreds of different settings in the NexT theme. I just list some of the features/settings I found were quite useful/interesting.</li>
+<li>There are two different <code>_config.yml</code>:<ul>
+<li>One is Hexo settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/_config.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li>One is NexT theme settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/themes/net/_config.yml</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-Add-about-tags-categories-pages"><a href="#1-Add-about-tags-categories-pages" class="headerlink" title="1. Add about/tags/categories pages"></a>1. Add about/tags/categories pages</h3><ul>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-change-between-different-NexT-themes"><a href="#2-change-between-different-NexT-themes" class="headerlink" title="2. change between different NexT themes"></a>2. change between different NexT themes</h3><ul>
+<li>NexT has four different themes. You could switch between them without changing another else(sweet!)</li>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-Display-current-reading-percentage"><a href="#3-Display-current-reading-percentage" class="headerlink" title="3. Display current reading percentage"></a>3. Display current reading percentage</h3><ul>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  <span class="attr">scrollpercent:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-Add-searching-feature"><a href="#4-Add-searching-feature" class="headerlink" title="4. Add searching feature"></a>4. Add searching feature</h3><ul>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>in the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add local searching function</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-Change-site-icons"><a href="#5-Change-site-icons" class="headerlink" title="5. Change site icons"></a>5. Change site icons</h3><ul>
+<li>Prepare an icon file(ideally 32*32) and change the file name to <code>favicon.ico</code>.</li>
+<li>Locate the icon file to <code>/themes/next/source/images</code></li>
+<li>Change the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/favicon.png</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-Add-password-feature"><a href="#6-Add-password-feature" class="headerlink" title="6. Add password feature"></a>6. Add password feature</h3><ul>
+<li>In the file themes/next/layout/_partials/head.swig, add the following code:  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">function</span>()&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">prompt</span>(<span class="string">&#x27;Please enter password&#x27;</span>) !== <span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">			<span class="built_in">alert</span>(<span class="string">&#x27;Wrong Password!&#x27;</span>);</span><br><span class="line">			history.<span class="built_in">back</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>When writing new articles, add these to the head  <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags: [test, password]</span><br><span class="line">password:123456</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="7-Add-word-count-and-estimate-reading-time"><a href="#7-Add-word-count-and-estimate-reading-time" class="headerlink" title="7. Add word count and estimate reading time"></a>7. Add word count and estimate reading time</h3><ul>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-wordcount</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>Add this to the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Symbols count and time to read for articles in Hexo blog.</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog"><a href="#These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog" class="headerlink" title="These are the features I implemented for this blog. I will update this list once I make other changes to the blog."></a>These are the features I implemented for this blog. I will update this list once I make other changes to the blog.</h3>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>blog</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to setup a blog using Hexo</title>
     <url>/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/</url>
     <content><![CDATA[<h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
