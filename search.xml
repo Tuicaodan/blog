@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>How to set up NexT theme in Hexo</title>
+    <url>/blog/post/2021-11-14-How-to-set-up-NexT-theme-in-Hexo/</url>
+    <content><![CDATA[<p>The Hexo comes with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted <a href="https://hexo.io/themes/">here</a>. I found some of the themes were stopped to update by the authors a couple of years ago. One thing I remind myself when picking the theme is to check whether the last update is within one year. Because there might be less compatible issues with the newer versions of Hexo. </p>
+<span id="more"></span>
+
+<p>I decided to go with the NexT theme since it was updated five months ago and also really aligns with my minimalism aethestic standard. Here is the <a href="https://github.com/theme-next/hexo-theme-next">repo</a>. </p>
+<h2 id="How-to-install-NexT"><a href="#How-to-install-NexT" class="headerlink" title="How to install NexT"></a>How to install NexT</h2><ol>
+<li>In the Hexo root folder, install through npm <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+</li>
+<li>Or you can clone the repo instead of npm installation <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li>changes the <code>theme</code> setting in the <code>_config.yml</code>  file in the Hexo root folder: <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>Now you have installed the NexT theme</li>
+</ol>
+<h2 id="Bits-and-bobs-about-how-I-set-up"><a href="#Bits-and-bobs-about-how-I-set-up" class="headerlink" title="Bits and bobs about how I set up"></a>Bits and bobs about how I set up</h2><ul>
+<li>There are hundreds of different settings in the NexT theme. I just list some of the features/settings I found were quite useful/interesting.</li>
+<li>There are two different <code>_config.yml</code>:<ul>
+<li>One is Hexo settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/_config.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li>One is NexT theme settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/themes/net/_config.yml</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-Add-about-tags-categories-pages"><a href="#1-Add-about-tags-categories-pages" class="headerlink" title="1. Add about/tags/categories pages"></a>1. Add about/tags/categories pages</h3><ul>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-change-between-different-NexT-themes"><a href="#2-change-between-different-NexT-themes" class="headerlink" title="2. change between different NexT themes"></a>2. change between different NexT themes</h3><ul>
+<li>NexT has four different themes. You could switch between them without changing another else(sweet!)</li>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-Display-current-reading-percentage"><a href="#3-Display-current-reading-percentage" class="headerlink" title="3. Display current reading percentage"></a>3. Display current reading percentage</h3><ul>
+<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  <span class="attr">scrollpercent:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-Add-searching-feature"><a href="#4-Add-searching-feature" class="headerlink" title="4. Add searching feature"></a>4. Add searching feature</h3><ul>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>in the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add local searching function</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-Change-site-icons"><a href="#5-Change-site-icons" class="headerlink" title="5. Change site icons"></a>5. Change site icons</h3><ul>
+<li>Prepare an icon file(ideally 32*32) and change the file name to <code>favicon.ico</code>.</li>
+<li>Locate the icon file to <code>/themes/next/source/images</code></li>
+<li>Change the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/favicon.png</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-Add-password-feature"><a href="#6-Add-password-feature" class="headerlink" title="6. Add password feature"></a>6. Add password feature</h3><ul>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-hexo-blog-encrypt</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>When writing new articles, add these to the head  <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags: [test, password]</span><br><span class="line"><span class="section">password:123456</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="7-Add-word-count-and-estimate-reading-time"><a href="#7-Add-word-count-and-estimate-reading-time" class="headerlink" title="7. Add word count and estimate reading time"></a>7. Add word count and estimate reading time</h3><ul>
+<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-wordcount</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>Add this to the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Symbols count and time to read for articles in Hexo blog.</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog"><a href="#These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog" class="headerlink" title="These are the features I implemented for this blog. I will update this list once I make other changes to the blog."></a>These are the features I implemented for this blog. I will update this list once I make other changes to the blog.</h3>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>blog</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to setup comment feature for Hexo Next</title>
     <url>/blog/post/2021-11-08-How-to-setup-comment-feature-for-Hexo-Next/</url>
     <content><![CDATA[<h2 id="Overviews"><a href="#Overviews" class="headerlink" title="Overviews"></a>Overviews</h2><p>This is a tutorial for setting up the comment feature for Hexo + Next. There are a couple of options for this feature. I think Disqus is the option for easier implementation. However, the Disqus requires users to have a Disqus account before commenting. Another option is using Valine. The setup was a little bit complex than Disqus. But it will give more control for the comment information.</p>
@@ -78,6 +151,96 @@
       </tags>
   </entry>
   <entry>
+    <title>Set up a web app project with React + Typescript + Styled Components + TailwindCSS</title>
+    <url>/blog/post/2021-11-18-Set-up-a-web-app-project-with-React-Typescript-Styled-Components-TailwindCSS/</url>
+    <content><![CDATA[<p>This is a short tutorial post as a reminder to myself about how to set up a web app project using the combination of  React + Typescript + Styled Components + TailwindCSS.</p>
+<span id="more"></span>
+<h3 id="How-to-set-up"><a href="#How-to-set-up" class="headerlink" title="How to set up"></a>How to set up</h3><ol>
+<li>cd to the folder where you want to have your react app locate</li>
+<li>create the react app <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx create-react-app the-app-name --template typescript</span><br><span class="line"><span class="built_in">cd</span> the-app-name</span><br></pre></td></tr></table></figure>
+</li>
+<li>if you already have a non-Typescript app created, you could add Typescript to the existing project <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save typescript @types/node @types/react @types/react-dom @types/jest</span><br></pre></td></tr></table></figure>
+</li>
+<li>install TailwindCSS <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#in the root</span></span><br><span class="line">npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9</span><br></pre></td></tr></table></figure>
+</li>
+<li>install CRACO <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#in the root</span></span><br><span class="line">npm install @craco/craco</span><br></pre></td></tr></table></figure>
+</li>
+<li>install and configure CRACO<ol>
+<li>update your <code>scripts</code> in your <code>package.json</code> file to use <code>craco</code> instead of <code>react-scripts</code> for all scripts except <code>eject</code>: <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">   <span class="string">&quot;start&quot;</span>: <span class="string">&quot;craco start&quot;</span>,</span><br><span class="line">   <span class="string">&quot;build&quot;</span>: <span class="string">&quot;craco build&quot;</span>,</span><br><span class="line">   <span class="string">&quot;test&quot;</span>: <span class="string">&quot;craco test&quot;</span>,</span><br><span class="line">   <span class="string">&quot;eject&quot;</span>: <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>create a <code>craco.config.js</code> at the root of our project and add the <code>tailwindcss</code> and <code>autoprefixer</code> as PostCSS plugins: <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// craco.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">style</span>: &#123;</span><br><span class="line">    <span class="attr">postcss</span>: &#123;</span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>),</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>),</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li>create TailwindCSS configuration file (This will create a minimal <code>tailwind.config.js</code> file at the root) <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx tailwindcss-cli@latest init</span><br></pre></td></tr></table></figure>
+</li>
+<li>configure <code>tailwind.config.js</code> file <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line">  <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">purge</span>: [<span class="string">&#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;</span>, <span class="string">&#x27;./public/index.html&#x27;</span>],</span><br><span class="line">    <span class="attr">darkMode</span>: <span class="literal">false</span>, <span class="comment">// or &#x27;media&#x27; or &#x27;class&#x27;</span></span><br><span class="line">    <span class="attr">theme</span>: &#123;</span><br><span class="line">      <span class="attr">extend</span>: &#123;&#125;,</span><br><span class="line">      <span class="comment">//I normally add these screen sizes here for media queries</span></span><br><span class="line">      <span class="attr">screens</span>: &#123;</span><br><span class="line">      <span class="attr">sm</span>: <span class="string">&quot;640px&quot;</span>,</span><br><span class="line">      <span class="attr">md</span>: <span class="string">&quot;768px&quot;</span>,</span><br><span class="line">      <span class="attr">lg</span>: <span class="string">&quot;1024px&quot;</span>,</span><br><span class="line">      <span class="attr">xl</span>: <span class="string">&quot;1280px&quot;</span>,</span><br><span class="line">      <span class="string">&quot;2xl&quot;</span>: <span class="string">&quot;1536px&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">variants</span>: &#123;</span><br><span class="line">      <span class="attr">extend</span>: &#123;&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>include Tailwind in the index CSS <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ./src/index.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+</li>
+<li>install twin.marco<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i twin.marco</span><br></pre></td></tr></table></figure></li>
+<li>install Styled Components<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save styled-components</span><br><span class="line">npm i --save-dev @types/styled-components</span><br></pre></td></tr></table></figure></li>
+<li>All done. Ready to go</li>
+</ol>
+<h3 id="Why-did-I-choose-these-skill-stacks"><a href="#Why-did-I-choose-these-skill-stacks" class="headerlink" title="Why did I choose these skill stacks"></a>Why did I choose these skill stacks</h3><h4 id="Styled-Components-TailwindCSS"><a href="#Styled-Components-TailwindCSS" class="headerlink" title="Styled Components + TailwindCSS"></a>Styled Components + TailwindCSS</h4><blockquote>
+<h5 id="What-is-Styled-Components"><a href="#What-is-Styled-Components" class="headerlink" title="What is Styled Components"></a>What is Styled Components</h5><p>styled-components is the result of wondering how we could enhance CSS for styling React component systems. By focusing on a single use case we managed to optimize the experience for developers as well as the output for end users.</p>
+</blockquote>
+<blockquote>
+<h5 id="What-is-TailwindCSS"><a href="#What-is-TailwindCSS" class="headerlink" title="What is TailwindCSS"></a>What is TailwindCSS</h5><p>Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.</p>
+</blockquote>
+<h5 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h5><p>When I first started doing web app development with HTML, CSS, and vanilla JavaScript.  I found one thing that is quite brother me was after creating several HTML elements. Even with the appropriate class/id name for the elements, I always have some messy CSS code. To make the code more maintainable, I have to do refactoring for the CSS. The separated HTML and CSS files made a lot of back and forward movements. </p>
+<p>When I started to learn React, I had the same feeling that it is not easy to make the JSX and CSS clean while coding. After doing some research, I found Styled Components. Using React is similar to playing with Lego bricks. With the help of Styled Components, you can style the Lego bricks during the creation of that brick. The idea is to have the styling and the creating together. Because of this, when you want to change the component styling later, instead of checking the className and chasing it in the CSS file, you can find the component directly and change the styling where the component is.</p>
+<p>Furthermore, with the TailwindCSS, creating the styling or changing the styling is much easier. Because TailwindCSs is a low-level CSS framework, it is self-described and highly customizable. </p>
+<h4 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h4><p>I believe once you try Typescript, you will never get back to JavaScript. I have some really bad memories of web development using JavaScript.  One typo in the props attribute might cause hours of debugging. </p>
+<p>Three things I really like the Typescript:</p>
+<ol>
+<li>Type/interfaces annotations. You can add types to variables or define interfaces for props. So you will get code suggestions while you type. This saves a lot of time and reduces the possibility of having typos/mistakes.</li>
+<li>Compiling error check. Because Typescript is a statically typed script, so it could show errors before running the code.</li>
+<li>Good maintainability. Not only for myself. I believe for a new developer to read the code, he/she will really appreciate you using Typescript over JavaScript.</li>
+</ol>
+<h3 id="Pseudocode-example"><a href="#Pseudocode-example" class="headerlink" title="Pseudocode example"></a>Pseudocode example</h3><p>If I want to create a component:</p>
+<ul>
+<li><p>has a certain styling:</p>
+<ul>
+<li>has flex display</li>
+<li>width is 3/4 of its parent in medium to big screen</li>
+<li>width is 100% of its parent in small screen</li>
+<li>background-color is grey</li>
+<li>has auto margin</li>
+<li>has some padding on the top</li>
+</ul>
+</li>
+<li><p>accept props with certain attributes</p>
+</li>
+</ul>
+<h4 id="React-Typescript-Styled-Components-TailwindCSS"><a href="#React-Typescript-Styled-Components-TailwindCSS" class="headerlink" title="React + Typescript + Styled Components + TailwindCSS"></a>React + Typescript + Styled Components + TailwindCSS</h4><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> syled <span class="keyword">from</span> <span class="string">&#x27;styled-components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> tw <span class="keyword">from</span> <span class="string">&#x27;twin.marco&#x27;</span>;</span><br><span class="line"></span><br><span class="line">interface ArticleProps &#123;</span><br><span class="line">  <span class="attr">title</span>: string,</span><br><span class="line">  <span class="attr">author</span>: string,</span><br><span class="line">  <span class="attr">hasDeleted</span>: boolean,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ArticleWarpper = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;tw<span class="string">`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    w-3/4</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    sm:w-full</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    flex</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    flex-row</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    bg-gray-400</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    m-auto</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    pt-2</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">  `</span>&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="keyword">const</span> WordWarpper = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;tw<span class="string">`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    item-center</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    px-2</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">  `</span>&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article: React。FC&lt;ArticleProps&gt; = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">ArticleWarpper</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> The article has been deleted <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">      &#123;!props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> Title: &#123;props.title&#125; <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> Author: &#123;props.author&#125; <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ArticleWarpper</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Article;</span><br></pre></td></tr></table></figure>
+
+<h4 id="React-alone"><a href="#React-alone" class="headerlink" title="React alone"></a>React alone</h4><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./Article.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;ArticleWarpper&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> The article has been deleted <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">      &#123;!props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> Title: &#123;props.title&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> Author: &#123;props.author&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Article;</span><br></pre></td></tr></table></figure>
+
+<p>Then I have to write the CSS in a separate CSS file.</p>
+<p>There are several things I like using the mentioned tech stacks:</p>
+<ul>
+<li>If I need to change any style of the component, I can have this done in one place</li>
+<li>Keep in mind that the CSS globaly used. If using the plain React, change ths css could affects all the components contain the same <code>className</code></li>
+<li>The TailwindCSS make the style easy to write and easy to read (I really like the way TailwindCSS come up with to write the media queries)</li>
+<li>The <code>ArticleProps</code> interface provides the auto-fill ability for the props. Improve effectiveness.</li>
+<li>With the help of The <code>ArticleProps</code> interface, the code will check the attributes when you provide props in the parent component</li>
+<li>Another benefit of the interface is comprehensibility. No matter reading other people’s code or reading the code you wrote a couple of years before, the interface could help you understand the code better</li>
+</ul>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+        <tag>Typescript</tag>
+        <tag>TailwindCSS</tag>
+        <tag>styled-components</tag>
+        <tag>web development</tag>
+        <tag>how-to</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to setup a blog using Hexo</title>
     <url>/blog/post/2021-11-09-How-to-setup-a-blog-using-Hexo/</url>
     <content><![CDATA[<h3 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h3><p>I keep listening about how important a developer should have a tech blog. A tech blog could both benefit other people and me. After wasting a couple of months to do so, I finally take my step. </p>
@@ -143,169 +306,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to set up NexT theme in Hexo</title>
-    <url>/blog/post/2021-11-14-How-to-set-up-NexT-theme-in-Hexo/</url>
-    <content><![CDATA[<p>The Hexo comes with a default theme which is okay. You can design your own theme or use other users’ designs if you want to make it easy. Currently, there are more than 300+ themes posted <a href="https://hexo.io/themes/">here</a>. I found some of the themes were stopped to update by the authors a couple of years ago. One thing I remind myself when picking the theme is to check whether the last update is within one year. Because there might be less compatible issues with the newer versions of Hexo. </p>
-<span id="more"></span>
-
-<p>I decided to go with the NexT theme since it was updated five months ago and also really aligns with my minimalism aethestic standard. Here is the <a href="https://github.com/theme-next/hexo-theme-next">repo</a>. </p>
-<h2 id="How-to-install-NexT"><a href="#How-to-install-NexT" class="headerlink" title="How to install NexT"></a>How to install NexT</h2><ol>
-<li>In the Hexo root folder, install through npm <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
-</li>
-<li>Or you can clone the repo instead of npm installation <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li>changes the <code>theme</code> setting in the <code>_config.yml</code>  file in the Hexo root folder: <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>Now you have installed the NexT theme</li>
-</ol>
-<h2 id="Bits-and-bobs-about-how-I-set-up"><a href="#Bits-and-bobs-about-how-I-set-up" class="headerlink" title="Bits and bobs about how I set up"></a>Bits and bobs about how I set up</h2><ul>
-<li>There are hundreds of different settings in the NexT theme. I just list some of the features/settings I found were quite useful/interesting.</li>
-<li>There are two different <code>_config.yml</code>:<ul>
-<li>One is Hexo settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/_config.yml</span><br></pre></td></tr></table></figure>
-</li>
-<li>One is NexT theme settings, located at:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/hexo/themes/net/_config.yml</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-Add-about-tags-categories-pages"><a href="#1-Add-about-tags-categories-pages" class="headerlink" title="1. Add about/tags/categories pages"></a>1. Add about/tags/categories pages</h3><ul>
-<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-change-between-different-NexT-themes"><a href="#2-change-between-different-NexT-themes" class="headerlink" title="2. change between different NexT themes"></a>2. change between different NexT themes</h3><ul>
-<li>NexT has four different themes. You could switch between them without changing another else(sweet!)</li>
-<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-Display-current-reading-percentage"><a href="#3-Display-current-reading-percentage" class="headerlink" title="3. Display current reading percentage"></a>3. Display current reading percentage</h3><ul>
-<li>In the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  <span class="attr">scrollpercent:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-Add-searching-feature"><a href="#4-Add-searching-feature" class="headerlink" title="4. Add searching feature"></a>4. Add searching feature</h3><ul>
-<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>in the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add local searching function</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-Change-site-icons"><a href="#5-Change-site-icons" class="headerlink" title="5. Change site icons"></a>5. Change site icons</h3><ul>
-<li>Prepare an icon file(ideally 32*32) and change the file name to <code>favicon.ico</code>.</li>
-<li>Locate the icon file to <code>/themes/next/source/images</code></li>
-<li>Change the theme settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/favicon.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/favicon.png</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="6-Add-password-feature"><a href="#6-Add-password-feature" class="headerlink" title="6. Add password feature"></a>6. Add password feature</h3><ul>
-<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-hexo-blog-encrypt</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>When writing new articles, add these to the head  <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags: [test, password]</span><br><span class="line"><span class="section">password:123456</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="7-Add-word-count-and-estimate-reading-time"><a href="#7-Add-word-count-and-estimate-reading-time" class="headerlink" title="7. Add word count and estimate reading time"></a>7. Add word count and estimate reading time</h3><ul>
-<li>Need to install a third-party plugin  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-wordcount</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>Add this to the Hexo settings yml  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Symbols count and time to read for articles in Hexo blog.</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog"><a href="#These-are-the-features-I-implemented-for-this-blog-I-will-update-this-list-once-I-make-other-changes-to-the-blog" class="headerlink" title="These are the features I implemented for this blog. I will update this list once I make other changes to the blog."></a>These are the features I implemented for this blog. I will update this list once I make other changes to the blog.</h3>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>blog</tag>
-        <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Set up a web app project with React + Typescript + Styled Components + TailwindCSS</title>
-    <url>/blog/post/2021-11-18-Set-up-a-web-app-project-with-React-Typescript-Styled-Components-TailwindCSS/</url>
-    <content><![CDATA[<p>This is a short tutorial post as a reminder to myself about how to set up a web app project using the combination of  React + Typescript + Styled Components + TailwindCSS.</p>
-<span id="more"></span>
-<h3 id="How-to-set-up"><a href="#How-to-set-up" class="headerlink" title="How to set up"></a>How to set up</h3><ol>
-<li>cd to the folder where you want to have your react app locate</li>
-<li>create the react app <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx create-react-app the-app-name --template typescript</span><br><span class="line"><span class="built_in">cd</span> the-app-name</span><br></pre></td></tr></table></figure>
-</li>
-<li>if you already have a non-Typescript app created, you could add Typescript to the existing project <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save typescript @types/node @types/react @types/react-dom @types/jest</span><br></pre></td></tr></table></figure>
-</li>
-<li>install TailwindCSS <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#in the root</span></span><br><span class="line">npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9</span><br></pre></td></tr></table></figure>
-</li>
-<li>install CRACO <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#in the root</span></span><br><span class="line">npm install @craco/craco</span><br></pre></td></tr></table></figure>
-</li>
-<li>install and configure CRACO<ol>
-<li>update your <code>scripts</code> in your <code>package.json</code> file to use <code>craco</code> instead of <code>react-scripts</code> for all scripts except <code>eject</code>: <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">   <span class="string">&quot;start&quot;</span>: <span class="string">&quot;craco start&quot;</span>,</span><br><span class="line">   <span class="string">&quot;build&quot;</span>: <span class="string">&quot;craco build&quot;</span>,</span><br><span class="line">   <span class="string">&quot;test&quot;</span>: <span class="string">&quot;craco test&quot;</span>,</span><br><span class="line">   <span class="string">&quot;eject&quot;</span>: <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>create a <code>craco.config.js</code> at the root of our project and add the <code>tailwindcss</code> and <code>autoprefixer</code> as PostCSS plugins: <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// craco.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">style</span>: &#123;</span><br><span class="line">    <span class="attr">postcss</span>: &#123;</span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">&#x27;tailwindcss&#x27;</span>),</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">&#x27;autoprefixer&#x27;</span>),</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li>create TailwindCSS configuration file (This will create a minimal <code>tailwind.config.js</code> file at the root) <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx tailwindcss-cli@latest init</span><br></pre></td></tr></table></figure>
-</li>
-<li>configure <code>tailwind.config.js</code> file <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tailwind.config.js</span></span><br><span class="line">  <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="attr">purge</span>: [<span class="string">&#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;</span>, <span class="string">&#x27;./public/index.html&#x27;</span>],</span><br><span class="line">    <span class="attr">darkMode</span>: <span class="literal">false</span>, <span class="comment">// or &#x27;media&#x27; or &#x27;class&#x27;</span></span><br><span class="line">    <span class="attr">theme</span>: &#123;</span><br><span class="line">      <span class="attr">extend</span>: &#123;&#125;,</span><br><span class="line">      <span class="comment">//I normally add these screen sizes here for media queries</span></span><br><span class="line">      <span class="attr">screens</span>: &#123;</span><br><span class="line">      <span class="attr">sm</span>: <span class="string">&quot;640px&quot;</span>,</span><br><span class="line">      <span class="attr">md</span>: <span class="string">&quot;768px&quot;</span>,</span><br><span class="line">      <span class="attr">lg</span>: <span class="string">&quot;1024px&quot;</span>,</span><br><span class="line">      <span class="attr">xl</span>: <span class="string">&quot;1280px&quot;</span>,</span><br><span class="line">      <span class="string">&quot;2xl&quot;</span>: <span class="string">&quot;1536px&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">variants</span>: &#123;</span><br><span class="line">      <span class="attr">extend</span>: &#123;&#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>: [],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>include Tailwind in the index CSS <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ./src/index.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
-</li>
-<li>install twin.marco<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i twin.marco</span><br></pre></td></tr></table></figure></li>
-<li>install Styled Components<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save styled-components</span><br><span class="line">npm i --save-dev @types/styled-components</span><br></pre></td></tr></table></figure></li>
-<li>All done. Ready to go</li>
-</ol>
-<h3 id="Why-did-I-choose-these-skill-stacks"><a href="#Why-did-I-choose-these-skill-stacks" class="headerlink" title="Why did I choose these skill stacks"></a>Why did I choose these skill stacks</h3><h4 id="Styled-Components-TailwindCSS"><a href="#Styled-Components-TailwindCSS" class="headerlink" title="Styled Components + TailwindCSS"></a>Styled Components + TailwindCSS</h4><blockquote>
-<h5 id="What-is-Styled-Components"><a href="#What-is-Styled-Components" class="headerlink" title="What is Styled Components"></a>What is Styled Components</h5><p>styled-components is the result of wondering how we could enhance CSS for styling React component systems. By focusing on a single use case we managed to optimize the experience for developers as well as the output for end users.</p>
-</blockquote>
-<blockquote>
-<h5 id="What-is-TailwindCSS"><a href="#What-is-TailwindCSS" class="headerlink" title="What is TailwindCSS"></a>What is TailwindCSS</h5><p>Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.</p>
-</blockquote>
-<h5 id="The-story"><a href="#The-story" class="headerlink" title="The story"></a>The story</h5><p>When I first started doing web app development with HTML, CSS, and vanilla JavaScript.  I found one thing that is quite brother me was after creating several HTML elements. Even with the appropriate class/id name for the elements, I always have some messy CSS code. To make the code more maintainable, I have to do refactoring for the CSS. The separated HTML and CSS files made a lot of back and forward movements. </p>
-<p>When I started to learn React, I had the same feeling that it is not easy to make the JSX and CSS clean while coding. After doing some research, I found Styled Components. Using React is similar to playing with Lego bricks. With the help of Styled Components, you can style the Lego bricks during the creation of that brick. The idea is to have the styling and the creating together. Because of this, when you want to change the component styling later, instead of checking the className and chasing it in the CSS file, you can find the component directly and change the styling where the component is.</p>
-<p>Furthermore, with the TailwindCSS, creating the styling or changing the styling is much easier. Because TailwindCSs is a low-level CSS framework, it is self-described and highly customizable. </p>
-<h4 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h4><p>I believe once you try Typescript, you will never get back to JavaScript. I have some really bad memories of web development using JavaScript.  One typo in the props attribute might cause hours of debugging. </p>
-<p>Three things I really like the Typescript:</p>
-<ol>
-<li>Type/interfaces annotations. You can add types to variables or define interfaces for props. So you will get code suggestions while you type. This saves a lot of time and reduces the possibility of having typos/mistakes.</li>
-<li>Compiling error check. Because Typescript is a statically typed script, so it could show errors before running the code.</li>
-<li>Good maintainability. Not only for myself. I believe for a new developer to read the code, he/she will really appreciate you using Typescript over JavaScript.</li>
-</ol>
-<h3 id="Pseudocode-example"><a href="#Pseudocode-example" class="headerlink" title="Pseudocode example"></a>Pseudocode example</h3><p>If I want to create a div:</p>
-<ul>
-<li><p>has a certain styling:</p>
-<ul>
-<li>has flex display</li>
-<li>width is 3/4 of its parent in medium to big screen</li>
-<li>width is 100% of its parent in small screen</li>
-<li>background-color is grey</li>
-<li>has auto margin</li>
-<li>has some padding on the top</li>
-</ul>
-</li>
-<li><p>accept props with certain attributes</p>
-</li>
-</ul>
-<h4 id="React-Typescript-Styled-Components-TailwindCSS"><a href="#React-Typescript-Styled-Components-TailwindCSS" class="headerlink" title="React + Typescript + Styled Components + TailwindCSS"></a>React + Typescript + Styled Components + TailwindCSS</h4><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> syled <span class="keyword">from</span> <span class="string">&#x27;styled-components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> tw <span class="keyword">from</span> <span class="string">&#x27;twin.marco&#x27;</span>;</span><br><span class="line"></span><br><span class="line">interface ArticleProps &#123;</span><br><span class="line">  <span class="attr">title</span>: string,</span><br><span class="line">  <span class="attr">author</span>: string,</span><br><span class="line">  <span class="attr">hasDeleted</span>: boolean,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ArticleWarpper = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;tw<span class="string">`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    w-3/4</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    sm:w-full</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    flex</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    flex-row</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    bg-gray-400</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    m-auto</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    pt-2</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">  `</span>&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="keyword">const</span> WordWarpper = styled.div<span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;tw<span class="string">`</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    item-center</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">    px-2</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">  `</span>&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article: React。FC&lt;ArticleProps&gt; = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">ArticleWarpper</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> The article has been deleted <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">      &#123;!props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> Title: &#123;props.title&#125; <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">WordWarpper</span>&gt;</span> Author: &#123;props.author&#125; <span class="tag">&lt;/<span class="name">WordWarpper</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">ArticleWarpper</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Article;</span><br></pre></td></tr></table></figure>
-
-<h4 id="React-alone"><a href="#React-alone" class="headerlink" title="React alone"></a>React alone</h4><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./Article.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Article = <span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;ArticleWarpper&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> The article has been deleted <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">      &#123;!props.hasDeleted &amp;&amp; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> Title: &#123;props.title&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;WordWarpper&quot;</span>&gt;</span> Author: &#123;props.author&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      )&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Article;</span><br></pre></td></tr></table></figure>
-
-<p>Then I have to write the CSS in a separate CSS file.</p>
-<p>There are several things I like using the mentioned tech stacks:</p>
-<ul>
-<li>If I need to change any style of the component, I can have this done in one place</li>
-<li>Keep in mind that the CSS globaly used. If using the plain React, change ths css could affects all the components contain the same <code>className</code></li>
-<li>The TailwindCSS make the style easy to write and easy to read (I really like the way TailwindCSS come up with to write the media queries)</li>
-<li>The <code>ArticleProps</code> interface provides the auto-fill ability for the props. Improve effectiveness.</li>
-<li>With the help of The <code>ArticleProps</code> interface, the code will check the attributes when you provide props in the parent component</li>
-<li>Another benefit of the interface is comprehensibility. No matter reading other people’s code or reading the code you wrote a couple of years before, the interface could help you understand the code better</li>
-</ul>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-        <tag>Typescript</tag>
-        <tag>TailwindCSS</tag>
-        <tag>styled-components</tag>
-        <tag>web development</tag>
-        <tag>how-to</tag>
       </tags>
   </entry>
 </search>
